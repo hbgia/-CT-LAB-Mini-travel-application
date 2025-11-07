@@ -4,7 +4,7 @@ A small Streamlit-based demo application for exploring travel-related features. 
 
 ## Prerequisites
 
-- Python 3.8 or newer
+- Python 3.9 to Python 3.13
 
 ## Setup (Windows PowerShell)
 
