@@ -1,11 +1,10 @@
 # Mini Travel Application
 
-A small Streamlit-based demo application for exploring travel-related features. This repository contains the Streamlit app (`app.py`), authentication helper (`auth.py`), backend helpers (`backend.py`), and a sample `users.json` file.
+A small Streamlit-based demo application for exploring travel-related features. This repository contains the Streamlit app (`app.py`), authentication helper (`auth.py`) and backend helpers (`backend.py`).
 
 ## Prerequisites
 
 - Python 3.8 or newer
-- Git (optional)
 
 ## Setup (Windows PowerShell)
 
@@ -19,9 +18,8 @@ python -m venv venv
 
 ```
 .\\venv\\Scripts\\Activate.ps1
-# If you see an execution policy error, run:
-# Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```
+If you see an **execution policy error**, run: `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
 
 3. Install the required packages from `requirements.txt`:
 
@@ -63,10 +61,7 @@ venv/bin/activate
 - `app.py` — Streamlit application entry point
 - `auth.py` — Authentication helpers
 - `backend.py` — Backend utilities
-- `users.json` — Example users dataset
-
-If you want, I can also add a short CONTRIBUTING or troubleshooting section (e.g., resolving execution policy issues) or provide a one-line script to set up the environment automatically.
-
+- `users.json` — User database
 ---
 Created for a Computational Thinking LAB Practice
 
