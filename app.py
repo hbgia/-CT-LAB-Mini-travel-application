@@ -14,36 +14,36 @@ st.title("Mini-travel Application")
 st.markdown("---")
 
 # ==================== SIDE BAR
-with st.sidebar:
-    st.header("Account")
-    if "user" not in st.session_state:
-        mode = st.radio("Select mode:", ["Login", "Register"])
+st.header("Account")
+if "user" not in st.session_state:
+    mode = st.segmented_control("Select mode:", ["Login", "Register"])
 
-        if mode == "Login":
-            username = st.text_input("Username", key="login_user")
-            password = st.text_input("Password", type="password", key="login_pass")
-            if st.button("Login"):
-                ok, msg = auth.login(username, password)
-                if ok:
-                    st.rerun()
-                else:
-                    st.error(msg)
+    if mode == "Login":
+        username = st.text_input("Username", key="login_user")
+        password = st.text_input("Password", type="password", key="login_pass")
+        if st.button("Login"):
+            ok, msg = auth.login(username, password)
+            if ok:
+                st.rerun()
+            else:
+                st.error(msg)
 
-        else:  # signup new
-            new_user = st.text_input("New Username", key="reg_user")
-            new_pass = st.text_input("New Password", type="password", key="reg_pass")
-            if st.button("Register"):
-                ok, msg = auth.register(new_user, new_pass)
-                st.toast(msg)
-                if ok:
-                    st.success("Now log in with your new account.")
-        st.stop()
-    else:
-        st.success(f"Logged in as: {st.session_state['user']}")
-        if st.button("Logout"):
-            auth.save_history()
-            del st.session_state["user"]
-            st.rerun()
+    else:  # signup new
+        new_user = st.text_input("New Username", key="reg_user")
+        new_pass = st.text_input("New Password", type="password", key="reg_pass")
+        if st.button("Register"):
+            ok, msg = auth.register(new_user, new_pass)
+            st.toast(msg)
+            if ok:
+                st.success("Now log in with your new account.")
+    st.stop()
+else:
+    st.success(f"Logged in as: {st.session_state['user']}")
+    if st.button("Logout"):
+        auth.save_history()
+        del st.session_state["user"]
+        st.rerun()
+st.markdown("---")
 
 # ==================== MAIN APP
 st.subheader("LLM Connecting - Pinggy")
