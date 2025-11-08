@@ -40,7 +40,6 @@ if "user" not in st.session_state:
 else:
     st.success(f"Logged in as: {st.session_state['user']}")
     if st.button("Logout"):
-        auth.save_history()
         del st.session_state["user"]
         st.rerun()
 st.markdown("---")
@@ -141,12 +140,14 @@ with col2:
                 'role': 'assistant',
                 'content': LLM_display_text or "",
             })
+            auth.save_history()
             with st.chat_message('assistant'):
                 st.markdown(LLM_display_text, unsafe_allow_html=False)
         
         if user_input:
             # append user's message to history
             st.session_state['messages'].append({'role': 'user', 'content': user_input})
+            auth.save_history()
             load_message_history()
             
             with st.spinner("Generating Answer...", show_time=True):
